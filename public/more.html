@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>All</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="./css/main.css" id='styles'>
+    </head>
+    <body class='darkBackground'>
+    <header>
+        <div class="titolo">
+            <a href="http://localhost:5500/index.html" class="noStyleLink"><h1>Crypto Coins Data</h1></a>
+        </div>
+        <div class="navWrap pure-menu pure-menu-horizontal">	
+            <nav>
+                <ul class="navi pure-menu-list">
+                    <li class="pure-menu-item"><a href="http://localhost:5500/more.html" class="pure-menu-link">Filter</a></li>
+                    <li class="pure-menu-item"><a href="" class="pure-menu-link">Menu 2</a></li>
+                    <li class="pure-menu-item"><a href="" class="pure-menu-link">Menu 3</a></li>
+                    <li class="pure-menu-item"><a href="" class="pure-menu-link">Menu 4</a></li>
+                    <!-- <li class="pure-menu-item"><input type="search" name=""></li> -->
+                </ul>		
+                
+            </nav>	
+            <input type="search" name="" class="searchBox">
+            <div id='iconNav'><button id='lightSwitch' class='lightOff' onclick="dswitch(this)"></button></div>
+        </div>
+        <div>
+            <label for="coinsPerPagina" class="whiteLabel">Seleziona quante valute vuoi mostrare in una pagina</label>
+            <input type="number" id="coinsPerPagina" name="coinsPerPagina" min="0" max="200" value="50" step="5">
+            <label for="numValuteTotali" class="whiteLabel">Seleziona quante valute vuoi caricare in totale</label>
+            <input type="number" id="numValuteTotali" name="numValuteTotali" min="0" max="7000" value="400" step="10">
+            <button type="button" onclick="applicaUserValue()">Applica</button>
+        </div>
+        <div id="scroller"><button type="button" onclick="scrollT(false)" class="pure-button button-small">&#8592</button><span id="segnaPagine"></span><button type="button" onclick="scrollT(true)" class="pure-button button-small">&#8594</button></div>
+        <div id="coinChoice">
+            <button onclick="showCryptos()"><h4>Choose which currencies to display</h4></button>
+        </div>
+        <form id="cryptoTable" class="pure-form">
+            <!--<div  id="checkBoxTable" class="flexWrap">    -->
+            <div  id="checkBoxTable" class="pure-g">    
+            </div>          
+            <input type="submit" value="Apply"></input>
+        </form>
+    </header>
+        <main class="gridContainer">
+                <div class="principale" id="principale">
+                    <table id="homeTable" class="pure-table pure-table-horizontal pure-table-striped">
+                        <tr class="tableHead">
+                            <th class="head hName"></th>
+                            <th class="head hTotal_Supply">Total Supply</th>
+                            <th class="head hMax_Supply">Max Supply</th>
+                            <th class="head hTrading_Volume_24h">Trading Volume 24h</th>
+                            <th class="head hPrice_change_1h">Price % change 1h</th>
+                            <th class="head hPrice_change_24h">Price % change 24h</th>
+                            <th class="head hValue">Value</th>
+                        </tr>  
+                    </table>
+                </div>        
+        </main>		   
+    <script src="const.js"></script>
+    <script src="rowCreator.js"></script>
+    <script src="mode.js"></script>
+    <script src="indexPost.js"></script>
+    <script src="more.js"></script> 
+    <script src="tableCompiler.js"></script>
+    </body>
+</html>
+    

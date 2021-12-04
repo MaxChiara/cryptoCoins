@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+	<title>Crypto Coins Data</title>
+	<script src="https://kit.fontawesome.com/9831034c53.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css" id='styles'>
+	<link rel="stylesheet" type="text/css" href="./css/d3.css" id='styles'>
+	<link rel="stylesheet" type="text/css" href="./css/search.css" id='styles'>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body class='darkBackground'>
+    <header>
+		<div class="titolo">
+			<a href="index.html" class = "href-noStyle"><h1 id="home">Crypto Coins Data</h1></a>
+		</div>
+		<div class="navWrap pure-menu pure-menu-horizontal">	
+			<nav>
+				<div class="navi">
+					<ul class="pure-menu-list">
+						<li class="pure-menu-item"><h4 onclick="showAll()"s class="pure-menu-link pointer"><a href="index.html" class="href-noStyle">All of them</a></h4></li>
+						<li class="pure-menu-item" id="coinChoice" onclick="showCryptos()"><h4 class="pure-menu-link pointer">Choose currencies</h4></li>
+					</ul>
+					<div class="search">
+						<div class="searchDiv">
+							<input type="search" name="searchBar" id="searchBar" class="searchBox" spellcheck="false">
+							<i class="fas fa-search"></i>
+						</div>
+						<div  class="instant-search" id="instant-search-id">
+							<!--<a href="" class="instant-search-result">bitonik</a> -->
+						</div>
+					</div>
+				</div> 		
+			</nav>	
+			<div id='iconNav'><button id='lightSwitch' class='lightOff' onclick="dswitch(this)"></button></div>
+		</div>
+		<div id="coinsPerPaginaDiv">
+			<div class="selectionWrapper">
+				<label for="coinsPerPagina" class="margin">Seleziona quante valute vuoi mostrare in una pagina 1</label>
+				<input type="number" id="coinsPerPagina" class="margin" name="coinsPerPagina" min="0" max="200" value="50" step="5">
+				<label for="numValuteTotali" class="whiteLabel">Seleziona quante valute vuoi caricare in totale</label>
+				<input type="number" id="numValuteTotali" name="numValuteTotali" min="0" max="7000" value="400" step="10">
+				<button type="button" onclick="applicaUserValue()">Applica</button>
+				
+			</div>
+		</div>
+		<form id="cryptoTable" class="pure-form">
+			<div  id="checkBoxTable" class="pure-g">    
+			</div>          
+			<input type="submit" value="Apply"></input>
+		</form>
+	</header>	
+    <main>
+        
+		<div class="principale" id="principale">
+			<table id="homeTable" class="pure-table pure-table-horizontal pure-table-striped">
+				<thead>
+					<tr class="tableHead">
+						<th class="head hName"></th>
+						<th class="head hTotal_Supply">Total Supply<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hMax_Supply">Max Supply<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hTrading_Volume_24h">Trading Volume 24h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hPrice_change_1h">Price % change 1h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hPrice_change_24h">Price % change 24h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hPrice_change_7d">Price % change 7d<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hPrice_change_30d">Price % change 30d<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hMarket_cap">Market Cap<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hValue">Value<i class="fas fa-arrow-down arrow"></i></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><img src="" alt="logo" class="nameLogo"><p class="Name" ></p></td>
+						<td class="Total_Supply" ></td>
+						<td class="Max_Supply" ></td>
+						<td class="Trading_Volume_24h" ></td>
+						<td class="Price_change_1h" ></td>
+						<td class="Price_change_24h" ></td>
+						<td class="Price_change_7d" ></td>
+						<td class="Price_change_30d" ></td>
+						<td class="Market_cap" ></td>
+						<td class="Value"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="secondario flexWrap" id="secondario">
+				
+				<div class="canva" id="canvaA">
+					<svg class="svgClass">
+						<g class="intero">
+							<path></path>
+							<g class="points"></g>
+							<g class="ordinate"></g>
+							<g class="ascisse"></g>
+						</g>	
+					</svg>
+				</div>			
+			</div>
+			<div class="flexContainerUrls">
+				<article class="subG">
+					<h4 class="titoloArticle"></h4>
+					<a href="" class="logoLink" rel="external" target="_blank"><img src="" alt="Crypto logo" class="articleLogo"></a>	
+					<p class="contenutoArticle"></p>
+				</article>	
+				<div class="urlsDiv">
+					<div class="pure-g subGrid">
+						<div class="urls pure-u-1-2">
+							<div class="subSubGrid">
+								<p>Official site:</p>
+								<a href="" id="site" class="urlLink"></a>
+							</div>
+						</div>
+						<div class="urls pure-u-1-2">
+							<div class="subSubGrid">
+								<p>subReddit:</p>
+								<a href="" id="reddit" class="urlLink"></a>
+							</div>
+						</div>
+					</div>
+					<div class="pure-g subGrid">
+						<div class="urls pure-u-1-2">
+							<div class="subSubGrid">
+								<p>Technical documentation:</p>
+								<a href="" id="technicalDoc" class="urlLink"></a>
+							</div>
+						</div>
+						<div class="urls pure-u-1-2">
+							<div class="subSubGrid">
+								<p>Source Code:</p>
+								<a href="" id="sourceCode" class="urlLink"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+    </main>	
+	<script src="const.js"></script>
+	<script src="rowCreator.js"></script>
+	<script src="mode.js"></script>
+	<script src="more.js"></script>
+	<script src="tableCompiler.js"></script>
+	<script src="graficoPage.js"></script>
+	<script src="indexPost.js">	</script>
+	<script src="d3.js"></script>
+	<script src="search.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server Template",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Massimiliano Chiara",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "uuid": "^8.3.2",
+    "coingecko-api": "^1.0.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "proxy": "http://localhost:5500"
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+	<title>Crypto Coins Data</title>
+	<script src="https://kit.fontawesome.com/9831034c53.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css" id='styles'>
+	<link rel="stylesheet" type="text/css" href="./css/search.css" id='styles'>
+</head>
+<body class='darkBackground'>
+<header>
+	<div class="titolo">
+		<h1 onclick="window.location.reload(false)" id="home">Crypto Coins Data</h1>
+	</div>
+	<div class="navWrap pure-menu pure-menu-horizontal">	
+		<nav>
+			<div class="navi">
+				<ul class="pure-menu-list">
+					<li class="pure-menu-item"><h4 onclick="showAll()"s class="pure-menu-link pointer">All of them</h4></li>
+					<li class="pure-menu-item" id="coinChoice" onclick="showCryptos()"><h4 class="pure-menu-link pointer">Choose currencies</h4></li>
+				</ul>
+				<div class="search">
+					<div class="searchDiv">
+					    <input type="search" name="searchBar" id="searchBar" class="searchBox" spellcheck="false">
+						<i class="fas fa-search"></i>
+					</div>
+					<div  class="instant-search" id="instant-search-id">
+						<!--<a href="" class="instant-search-result">bitonik</a> -->
+					</div>
+				</div>
+			</div> 		
+		</nav>	
+		<div id='iconNav'><button id='lightSwitch' class='lightOff' onclick="dswitch(this)"></button></div>
+	</div>
+	<div id="coinsPerPaginaDiv">
+		<div class="selectionWrapper">
+			<label for="coinsPerPagina" class="margin">Seleziona quante valute vuoi mostrare in una pagina 1</label>
+			<input type="number" id="coinsPerPagina" class="margin" name="coinsPerPagina" min="0" max="200" value="50" step="5">
+			<label for="numValuteTotali" class="whiteLabel">Seleziona quante valute vuoi caricare in totale</label>
+			<input type="number" id="numValuteTotali" name="numValuteTotali" min="0" max="7000" value="400" step="10">
+			<button type="button" onclick="applicaUserValue()">Applica</button>
+			
+		</div>
+	</div>
+	<div id="numValute">
+		<div class="scroller2"><button type="button" onclick="scrollT(false)" class="pure-button button-small">&#8592</button><span class="segnaPagine"></span><button type="button" onclick="scrollT(true)" class="pure-button button-small">&#8594</button></div>
+		<div class="scroller"><button type="button" class="pure-button button-small" onclick="scrollB()">&#8592</button><span class="segnaPagine"></span><button type="button" class="pure-button button-small" onclick="scrollA()">&#8594</button></div>
+	</div>
+	<form id="cryptoTable" class="pure-form">
+		<div  id="checkBoxTable" class="pure-g">    
+		</div>          
+		<input type="submit" value="Apply"></input>
+	</form>
+</header>
+	<main class="gridContainer">
+			<div class="principale" id="principale">
+				<table id="homeTable" class="pure-table pure-table-horizontal pure-table-striped">
+					<tr class="tableHead">
+						<th class="head hName"></th>
+						<th class="head hTotal_Supply">Total Supply<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hMax_Supply">Max Supply<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hTrading_Volume_24h">Trading Volume 24h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hPrice_change_1h">Price % change 1h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hPrice_change_24h">Price % change 24h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head hValue">Value<i class="fas fa-arrow-down arrow"></i></th>
+					</tr>
+				</table>
+				<div id="numValute2">
+					<div class="scroller"><button type="button" class="pure-button button-small" onclick="scrollB()">&#8592</button><a onclick="showAll()" id="showAllSpan">Show all</a><button type="button" class="pure-button button-small" onclick="scrollA()">&#8594</button></div>
+				</div>
+				<div class="scroller2"><button type="button" onclick="scrollT(false)" class="pure-button button-small">&#8592</button><span class="segnaPagine"></span><button type="button" onclick="scrollT(true)" class="pure-button button-small">&#8594</button></div>
+			</div>
+			<div class="secondario flexWrap" id="secondario">
+				<article class="sub">
+					<h4 class="titoloArticle"></h4>
+					<a href="" class="logoLink" rel="external" target="_blank"><img src="" alt="Crypto logo" class="articleLogo"></a>	
+					<p class="contenutoArticle"></p>
+				</article>
+				<article class="sub">
+					<h4 class="titoloArticle"></h4>
+					<a href="" class="logoLink" rel="external" target="_blank"><img src="" alt="Crypto logo" class="articleLogo"></a>
+					<p class="contenutoArticle"></p>
+				</article>
+				<article class="sub">
+					<h4 class="titoloArticle"></h4>
+					<a href="" class="logoLink" rel="external" target="_blank"><img src="" alt="Crypto logo" class="articleLogo"></a>
+					<p class="contenutoArticle"></p>
+				</article>
+				<article class="sub">
+					<h4 class="titoloArticle"></h4>
+					<a href="" class="logoLink" rel="external" target="_blank"><img src="" alt="Crypto logo" class="articleLogo"></a>
+					<p class="contenutoArticle"></p>
+				</article>
+				<article class="sub">
+					<h4 class="titoloArticle"></h4>
+					<a href="" class="logoLink" rel="external" target="_blank"><img src="" alt="Crypto logo" class="articleLogo"></a>
+					<p class="contenutoArticle"></p>
+				</article>				
+				<article class="sub">
+					<h4 class="titoloArticle"></h4>
+					<a href="" class="logoLink" rel="external" target="_blank"><img src="" alt="Crypto logo" class="articleLogo"></a>
+					<p class="contenutoArticle"></p>
+				</article>				
+			</div>
+		<aside id="aside">
+			<h2>Sidebar</h2>
+			<div class="flexBox flexWrap">
+				<div class="sideLink">
+					<a href="#">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+					</a>
+					<h6>Advertising</h6>
+				</div>
+				<div class="sideLink">
+					<a href="#">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+					</a>
+					<h6>Advertising</h6>
+				</div>
+				<div class="sideLink">
+					<a href="#">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+					</a>
+					<h6>Advertising</h6>
+				</div>
+				<div class="sideLink">
+					<a href="#">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+					</a>
+					<h6>Advertising</h6>
+				</div>
+			</div>
+		</aside> 
+	</main>		
+	<script src="const.js"></script>
+	<script src="rowCreator.js"></script>
+	<script src="mode.js"></script>
+	<script src="more.js"></script>
+	<script src="tableCompiler.js"></script>
+	<script src="index.js"></script>
+	<script src="indexPost.js"></script>
+	<script src="search.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+text {
+	text-anchor: start;
+	font-size: 12px;
+}
+
+.ascisse text {
+	text-anchor: middle;
+}
+
+.points g text {
+	font-size: 16px;
+	fill: #bfffd4;
+	cursor: default;
+}
+
+.canva {
+	background: linear-gradient(180deg, rgba(111,154,227,1) 0%, rgba(71,46,171,0.865983893557423) 54%, rgba(10,1,47,1) 100%);
+	height: 450px;
+	width: 51em;
+	display: inline-block;
+	margin: auto;
+}
+
+.ordinate text{
+	fill:rgb(188, 210, 255);
+}
+
+.ordinate line{
+	stroke-width: 1px;
+	color: aliceblue;
+}
+
+.ordinate path{
+	stroke-width: 1px;
+	color: aliceblue;
+}
+
+.ascisse text{
+	fill:rgb(188, 210, 255);
+}
+
+.ascisse line{
+	stroke-width: 1px;
+	color: aliceblue;
+}
+
+.ascisse path{
+	stroke-width: 1px;
+	color: aliceblue;
+}
+
+.info-hidden {
+	visibility: hidden;
+}
+
+.info-visible {
+	visibility: visible;
+}
+
+.tooltip {
+	fill: #042740;
+	width: 6em;
+	height: 3em;
+}
+
+.intero {
+	width: 100%;
+	height: 100%;
+}
+
+.yGrid line {
+	stroke:rgba(188, 210, 255, 0.39);
+}
+
+.yGrid .domain {
+	opacity: 0;
+}
+
+.urlsDiv {
+	padding: 3px;
+	/* background: linear-gradient(0deg, rgb(19 47 110) 23%, rgb(22 4 70 / 32%) 100%); */
+	width: 51%;
+	height: 16em;
+}
+
+.flexContainerUrls {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	width: 100%;
+}
+
+.urls {
+	height: 14%;
+	background: #3a47bf7d;
+	/* margin: auto 1em; */
+	border-radius: 5%;
+	padding: 0 1em;
+}
+
+.urls:nth-child(1) {
+	border-radius: 3% 0 0 3%;
+	border-right: 2px solid #00002a;
+}
+
+.urls:nth-child(2) {
+	border-radius: 0 3% 3% 0;
+}
+
+.urlLink {
+	line-height: 2em;
+	padding: 0px 4px;
+	text-decoration: none;
+	font-size: small;}
+
+.urlLink:hover {
+	text-shadow: 1px 1px #407ff1;
+}
+
+.pure-g > div {
+	box-sizing: border-box;
+}
+
+.subGrid {
+	margin: 2em;
+}
+
+.subSubGrid {
+	padding: 5px 0;
+}
+
+.subSubGrid > p {
+	margin: 0px;
+	color: aliceblue;
+}
