@@ -305,6 +305,9 @@ const server = http.createServer((req,res)=>{
         if (req.url.includes('graph')){ //controllo se è la richiesta del grafico
             req.url = req.url.slice(0, req.url.indexOf('?'))+'.html';
         }
+        else if (req.url == "/indexAll.html"){ //controllo se è la richiesta di All of them da un pagina grafico
+            req.url = '/';
+        }
         filePath = path.join(__dirname, 'public', req.url==='/' ? 'index.html' : req.url)  
         //controllo l'estensione di filePath per determinare il 'Content-Type'
         contentType = setContentType(path.extname(filePath));

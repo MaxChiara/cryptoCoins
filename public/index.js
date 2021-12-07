@@ -14,8 +14,7 @@ let historyData = {};//oggetto con dati storici per il grafico tornati dalla fet
 
 let dataObj, infoObj;
 
-//creo le <tr> della tabella
-rowCreator(homeNumRows); 
+
 
 // API Requests
 
@@ -57,7 +56,8 @@ fetch(onLoadReq)
 		formatValues();
 		formatGreenRed();
 		addHref(idList);
-		visualizzaDatiScroller(start, limit, homeNumRows) 	
+		visualizzaDatiScroller(start, limit, homeNumRows);
+		applyCanOrder()
 	})
 	.catch(err=> console.log('Errore nella prima chiamata: ', err))
 }
@@ -100,14 +100,6 @@ let idFetchedArticle = []; // id delle valute che verranno passate alla fetch di
 let currentId = 0; // a che punto sono gli articoli nella lista idList, index.
 let currentIdTabella = 0; // a che punto è la tabella nella lista idList, index.
 
-
-//chiamata della funzione per caricare la tabella iniziale
-//a meno che non debba chiamare showAll che allora non c'è bisogno (ovvero quando clicco su All of them da una pagina graph)
-if (document.referrer.includes('graph')){
-	showAll()
-}
-else {loadHometable(start, limit, sort)}
- 
 
 
 function scrollAll(avanti) {
@@ -167,4 +159,24 @@ function scrollT(avanti) {
 	}
 	aggiornaTabellaFetch(allId.slice(start, end));
 	visualizzaDatiScroller(start, limite, coinsPerPagina);		
+}
+
+
+
+if (window. location.pathname == "/indexAll.html") {showAll()}
+else {
+	//creo le <tr> della tabella
+	rowCreator(homeNumRows); 
+	loadHometable(start, limit, sort);
+}
+
+document.getElementById("cap").addEventListener("mouseenter", hoverCap);
+document.getElementById("cap").addEventListener("mouseleave", hoverCapLeave);
+
+function hoverCap(){
+	document.getElementById("hoverCap").style.display = "block"
+}
+
+function hoverCapLeave(){
+	document.getElementById("hoverCap").style.display = "none"
 }

@@ -301,17 +301,25 @@ fetch(infoReq)
 
 function hideElements() {
 	for (i=0; i<arguments.length; i++) {
-		document.getElementById(arguments[i]).style.display = 'none'
+		try {
+			document.getElementById(arguments[i]).style.display = 'none'
+		} catch (error) {
+			continue
+		}	
 	}	
 }
 
 function hideClass() {
 	for (i=0; i<arguments.length; i++) {
-		let classArray = document.getElementsByClassName(arguments[i]);
+		try{
+			let classArray = document.getElementsByClassName(arguments[i]);
 		for (ii=0; ii<classArray.length; ii++) {
 			classArray[ii].style.display = 'none'
 		}
-		
+	} catch(error){
+		console.log("eccolo");
+		continue
+	}
 	}	
 }
 
@@ -340,7 +348,7 @@ function changeHomeNumRows() {
 
 function showAll() {
 	hideElements('secondario', 'aside', 'showAllSpan');
-	hideClass('scroller');
+	hideClass('scroller', 'flexContainerUrls');
 	showElements('coinsPerPaginaDiv');
 	showClass('scroller2');
 	changeHomeNumRows();
@@ -357,14 +365,16 @@ function showAll() {
 function applyCanOrder() {
 	classArray = document.getElementsByClassName('head');
 	for (i=1; i<classArray.length; i++) {
-		classArray[i].className += ' canOrder';
-		classArray[i].addEventListener('click', setOrder);
-	}
-	
+		if (!Array.from(classArray[i]).includes('canOrder')){
+			classArray[i].className += ' canOrder';
+			classArray[i].addEventListener('click', setOrder);
+		}
+	}	
 }
 
 function setOrder(event) {
-	let order = event.srcElement.innerText;
+	hideClass("relativeWrapper");
+	let order = event.srcElement.textContent;
 	switch (order) {
 		case 'Total Supply':
 			order = 'total_supply';
