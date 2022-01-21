@@ -126,9 +126,8 @@ function getIds(start, end, first=false) {	//funzione che raccoglie tutti gli id
 			return data
 		})
 		.then(data=> {
-			console.log(moreTableId); //testing
 			idMap = data.data;
-		return idMap
+			return idMap
 		}) 
 		.then(data=> {
 			createCheckboxes(data);

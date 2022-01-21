@@ -1,4 +1,4 @@
-const width = 1000;
+const width = 1300;
 const height = 800;
 const stroke = '#ccc';
 
@@ -6,7 +6,7 @@ const stroke = '#ccc';
 function dendogram(data, svg, width, height){
   //d3.select(svg)
   const cluster = d3.cluster()
-    .size([height, width - 220]);  // 100 is the margin I will have on the right side
+    .size([height, width - 520]);  // 100 is the margin I will have on the right side
 
   // Give the data to this cluster layout:
   const root = d3.hierarchy(data, function(d) {

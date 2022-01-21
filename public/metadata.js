@@ -12,13 +12,13 @@ const data = [
                                                                             {"name":"formatNumbers","desc":"Formatta i numeri della tabella","colname":"level4"},
                                                                             {"name":"formatValues","desc":"Crea un oggetto Intl.NumberFormat per i valori delle valute","colname":"level4"},
                                                                             {"name":"formatGreenRed","desc":"Colora di rosso i dati negativi e di verde quellli positivi","colname":"level4"},
-                                                                            {"name":"addHref","colname":"level4"},
-                                                                            {"name":"applyCanOrder","colname":"level4"},
-                                                                            {"name":"visualizzaDatiScroller","colname":"level4"},
-                                                                            {"name":"cryptoInfoWrapper","colname":"level4", "children":
+                                                                            {"name":"addHref", "desc":"Aggiunge un uri all'href degli elementi <a>","colname":"level4"},
+                                                                            {"name":"applyCanOrder", "desc":"Aggiunge un event listener ai table head per poterli ordinare in base ai vari valori","colname":"level4"},
+                                                                            {"name":"visualizzaDatiScroller", "desc":"Aggiunge il numero della pagina corrente e delle pagine totale della tabella","colname":"level4"},
+                                                                            {"name":"cryptoInfoWrapper", "desc":"Chiamata fetch per ottenere l'icona e la descrizione delle valute","colname":"level4", "children":
                                                                                 [
-                                                                                    {"name":"addLogo","colname":"level5"}, 
-                                                                                    {"name":"addArticles","colname":"level5"}
+                                                                                    {"name":"addLogo", "desc":"Aggiunge le icone delle valute","colname":"level5"}, 
+                                                                                    {"name":"addArticles", "desc":"Aggiunge la descrizione delle valute","colname":"level5"}
                                                                                 ]
                                                                             }
                                                                         ]

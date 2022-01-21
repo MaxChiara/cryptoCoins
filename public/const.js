@@ -1,4 +1,5 @@
-const url = 'https://fathomless-earth-51378.herokuapp.com/';
+const url = 'https://glacial-meadow-11946.herokuapp.com';
+//const url = 'http://localhost:5500'; local testing
 const onLoadData = 'onLoadData.json';
 const coinsId = 'id.json';
 const cryptoInfo = 'cryptoInfo.json';

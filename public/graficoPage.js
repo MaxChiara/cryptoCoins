@@ -1,8 +1,8 @@
 //const hardLimit = 5000;
-let coinIdMap = [];
-let geckoIdMap = [];
-let idGecko; // id della valuta gecko corrispondente a quella coinMarket
-let historyData = {};//oggetto con dati storici per il grafico tornati dalla fetch
+coinIdMap = [];
+geckoIdMap = [];
+idGecko; // id della valuta gecko corrispondente a quella coinMarket
+historyData = {};//oggetto con dati storici per il grafico tornati dalla fetch
 
 //reupero id dall'url
 

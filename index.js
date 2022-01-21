@@ -6,13 +6,8 @@ const fetch = require('node-fetch');
 const EventEmitter = require('events');
 const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
+const Config = require('./config');
 
-
-/*3. Make calls
-var func = async() => {
-  let data = await CoinGeckoClient.ping();
-};
-*/
 
 class MyEmitter extends EventEmitter {}
 
@@ -221,7 +216,7 @@ const server = http.createServer((req,res)=>{
             headers: {'Content-Type': 'text/json',
             'accept': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'X-CMC_PRO_API_KEY': 'de2431bb-c4f1-42ff-8bea-07ee15797876',
+            'X-CMC_PRO_API_KEY': Config.coinMarketKey,
         }}
 
         //creo una stringa con i parametri della query 
