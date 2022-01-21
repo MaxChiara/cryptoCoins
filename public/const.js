@@ -1,4 +1,4 @@
-const url = 'http://localhost:5500';
+const url = 'https://fathomless-earth-51378.herokuapp.com/';
 const onLoadData = 'onLoadData.json';
 const coinsId = 'id.json';
 const cryptoInfo = 'cryptoInfo.json';
