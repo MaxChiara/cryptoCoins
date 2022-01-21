@@ -373,8 +373,9 @@ function applyCanOrder() {
 }
 
 function setOrder(event) {
-	hideClass("relativeWrapper");
-	let order = event.srcElement.textContent;
+	addArrowHoverEvents();
+	hideClass("h");
+	let order = event.currentTarget.textContent;
 	switch (order) {
 		case 'Total Supply':
 			order = 'total_supply';
@@ -397,11 +398,16 @@ function setOrder(event) {
 	}
 	if (sort == order) {
 		sort = 'market_cap';
-		hideClass('arrow');
+		event.currentTarget.lastChild.style.opacity = '1';
+		//showClass("h");
+		//hideClass('arrow');
 	}
 	else {
-		hideClass('arrow');
-		event.srcElement.lastChild.style.display = 'inline';
+		event.currentTarget.removeEventListener("mouseenter", showArrow);
+		event.currentTarget.removeEventListener("mouseleave", showArrow);
+		event.currentTarget.lastChild.style.opacity = '1';
+		//event.currentTarget.lastChild.classList.remove("ar");
+		//hideClass('arrow');
 		sort = order;
 	}
 	loadHometable(start, limit, sort, false);
@@ -410,4 +416,23 @@ function setOrder(event) {
 function hideLogo() {
 	logoArray = document.getElementsByClassName('nameLogo');
 	for (i=0; i<logoArray.length; i++) {logoArray[i].style.display = 'none' };
+}
+
+
+function addArrowHoverEvents() {
+	let classArray = document.getElementsByClassName("ar");
+	for (let e of classArray) { 
+		e.addEventListener("mouseenter", showArrow);
+		e.addEventListener("mouseleave", showArrow);
+		e.lastChild.style.opacity = '0'
+	}		
+}
+
+function showArrow(event){
+	/*event.cancelBubble = true*/
+	//event.stopPropagation();
+	if(event.target !== this){
+		event.scr
+	}
+	event.currentTarget.lastChild.style.opacity == '0' ? event.currentTarget.lastChild.style.opacity = '1' : event.currentTarget.lastChild.style.opacity = '0';
 }

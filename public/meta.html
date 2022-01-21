@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+	<title>Crypto Coins Data</title>
+	<script src="https://kit.fontawesome.com/9831034c53.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css" id='styles'>
+	<link rel="stylesheet" type="text/css" href="./css/search.css" id='styles'>
+</head>
+<body class='darkBackground overflow'>
+<header>
+	<d class="meta"><a href="">Struttura sito</a></d>
+	<div class="titolo">
+		<h1 id="home"><a href="/">CRIPTO COINS</a></h1>
+	</div>
+	<div class="navWrap pure-menu pure-menu-horizontal">	
+		<nav>
+			<div class="navi">
+				<ul class="pure-menu-list">
+					<li class="pure-menu-item"><h4 onclick="showAll()"s class="pure-menu-link pointer">All</h4></li>
+					<li class="pure-menu-item" id="coinChoice" onclick="showCryptos()"><h4 class="pure-menu-link pointer">Filter</h4></li>
+				</ul>
+				<div class="search">
+					<div class="searchDiv">
+					    <input type="search" name="searchBar" id="searchBar" class="searchBox" spellcheck="false">
+						<i class="fas fa-search"></i>
+					</div>
+					<div  class="instant-search" id="instant-search-id">
+						<!--<a href="" class="instant-search-result">bitonik</a> -->
+					</div>
+				</div>
+			</div> 		
+		</nav>	
+		<div id='iconNav'><button id='lightSwitch' class='lightOff' onclick="dswitch(this)"></button></div>
+	</div>
+	<div id="coinsPerPaginaDiv">
+		<div class="selectionWrapper">
+			<label for="coinsPerPagina" class="margin">Seleziona quante valute vuoi mostrare in una pagina 1</label>
+			<input type="number" id="coinsPerPagina" class="margin" name="coinsPerPagina" min="0" max="200" value="50" step="5">
+			<label for="numValuteTotali" class="whiteLabel">Seleziona quante valute vuoi caricare in totale</label>
+			<input type="number" id="numValuteTotali" name="numValuteTotali" min="0" max="7000" value="400" step="10">
+			<button type="button" onclick="applicaUserValue()">Applica</button>
+			
+		</div>
+	</div>
+
+	<form id="cryptoTable" class="pure-form">
+		<div  id="checkBoxTable" class="pure-g">    
+		</div>          
+		<input type="submit" value="Apply"></input>
+	</form>
+</header>
+	<main>
+        <h2 class="metaLink" id="str">Ordine gerarcico risorse</h2>
+        <div id="canva2" class="graph">
+            <p>Architettura del sito</p>
+            <svg id="strSvg">
+            </svg>
+        </div>
+
+        <h2 class="metaLink" id="funcs">Caricamento home</h2>
+        <div id="canva" class="graph">
+            <p>Funzioni che vengono chiamate al caricamento di index.html</p>
+            <svg id="func">
+            </svg>
+        </div>
+	</main>		
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="metadata.js"></script>
+    <script src="structure.js"></script>
+</body>
+</html>

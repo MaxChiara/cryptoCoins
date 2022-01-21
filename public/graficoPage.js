@@ -1,4 +1,4 @@
-const hardLimit = 5000;
+//const hardLimit = 5000;
 let coinIdMap = [];
 let geckoIdMap = [];
 let idGecko; // id della valuta gecko corrispondente a quella coinMarket
@@ -48,37 +48,6 @@ function getCryptoData(id) {
 	.catch(err=> console.log('Errore nella prima chiamata: ', err))
 }
 
-
-
-//FETCH JSON ID coin\gecko
-/*
-function fetchCoinHistoryData(id) {	//id = id valuta CoinMarket Cap di cui vuoi fare il grafico. Funzione da cui parte tutto
-	let loadReqHeader = new Headers({
-		'Content-Type': 'text/json',
-		'accept': 'application/json',
-		'Access-Control-Allow-Origin': '*',
-		'limit': hardLimit,
-	})
-
-	let loadReqObj = {
-		method: "GET",
-		mode: "cors",
-		headers: loadReqHeader,
-	}
-
-	let loadReq = new Request(url+'/'+coinIdMapUrl, loadReqObj);
-	fetch(loadReq)
-		.then(response=>response.json())
-		.then(data => {
-			coinIdMap = data; //TESTING
-			let symbol = data['data'].find(o=>o.id==id)['symbol'];
-			fetchIDGecko(symbol.toLowerCase());
-			
-		})
-		//.then(fetchHistoricData(idGecko))
-		.catch(err => console.log('Errore nel caricamento di '+ coinIdMapUrl, err))
-}
-*/
 
 function fetchIDGecko(coinId=''){	//può accettare un parametro che è il symbol di coinMarketCap che vuoi trovare su gecko
 	let loadReqHeader = new Headers({	//se no recupera tutti gli id
@@ -157,7 +126,7 @@ function remakeDateObj(data) {	//data=riposta json della fetch
 }
 
 // invoco la funzione principale
-getCryptoData(idGraph);
+getCryptoData(idGraph);   //__________TESTING
 
 function populateTable(data, id) {
 	document.getElementsByClassName('Name')[0].textContent = data.data[id].name;
@@ -204,7 +173,10 @@ fetch(infoReq)
 		checkTextLength();
 		return data
 	})
-	.then(data=>addArticles(data))
+	.then(data=>{
+		addIco(data);
+		addArticles(data)
+	})
 	//.then(data=>addArticles(data, homeNumRows))
 	.catch(err => console.log('ERROR!:', err));
 }
@@ -225,3 +197,117 @@ function checkTextLength() {
 		document.getElementById("technicalDoc").textContent = document.getElementById("technicalDoc").textContent.slice(1,38) + "..."
 	}
 }
+
+function addIco(data) {
+	document.getElementById("Ico").src = data.data[idFetchedArticle].logo;
+	document.getElementById("icoTitle").textContent = data.data[idFetchedArticle].name;
+
+}
+//OFFLINE TESTING
+/*
+const D = [
+    [
+        "2021-12-08T13:56:55.803Z",
+        "3823.9"
+    ],
+    [
+        "2021-12-01T13:56:55.803Z",
+        "4092.1"
+    ],
+    [
+        "2021-11-16T13:56:55.803Z",
+        "4032.9"
+    ],
+    [
+        "2021-11-01T13:56:55.803Z",
+        "3713.4"
+    ],
+    [
+        "2021-10-17T12:56:55.803Z",
+        "3322.9"
+    ],
+    [
+        "2021-10-01T12:56:55.803Z",
+        "2603.6"
+    ],
+    [
+        "2021-09-16T12:56:55.803Z",
+        "3042.1"
+    ],
+    [
+        "2021-09-01T12:56:55.803Z",
+        "2913.0"
+    ],
+    [
+        "2021-08-17T12:56:55.803Z",
+        "2677.4"
+    ],
+    [
+        "2021-08-01T12:56:55.803Z",
+        "2141.8"
+    ],
+    [
+        "2021-07-17T12:56:55.803Z",
+        "1587.6"
+    ],
+    [
+        "2021-07-01T12:56:55.803Z",
+        "1922.6"
+    ],
+    [
+        "2021-06-16T12:56:55.803Z",
+        "2112.5"
+    ],
+    [
+        "2021-06-01T12:56:55.803Z",
+        "2213.9"
+    ],
+    [
+        "2021-05-17T12:56:55.803Z",
+        "2964.5"
+    ],
+    [
+        "2021-05-01T12:56:55.803Z",
+        "2310.2"
+    ],
+    [
+        "2021-04-16T12:56:55.803Z",
+        "2100.6"
+    ],
+    [
+        "2021-04-01T12:56:55.803Z",
+        "1633.7"
+    ],
+    [
+        "2021-03-17T13:56:55.803Z",
+        "1519.5"
+    ],
+    [
+        "2021-03-01T13:56:55.803Z",
+        "1171.8"
+    ],
+    [
+        "2021-02-14T13:56:55.803Z",
+        "1494.0"
+    ],
+    [
+        "2021-02-01T13:56:55.803Z",
+        "1086.3"
+    ],
+    [
+        "2021-01-17T13:56:55.803Z",
+        "1022.1"
+    ],
+    [
+        "2021-01-01T13:56:55.803Z",
+        "604.7"
+    ],
+    [
+        "2020-12-17T13:56:55.803Z",
+        "521.4"
+    ]
+]
+historyData = D;
+remakeDateObj(D);  
+makeGraphWrapper()	
+*/

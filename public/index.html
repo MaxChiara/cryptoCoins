@@ -11,20 +11,21 @@
 	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
-	<link rel="stylesheet" type="text/css" href="./css/main.css" id='styles'>
-	<link rel="stylesheet" type="text/css" href="./css/search.css" id='styles'>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/search.css">
 </head>
 <body class='darkBackground'>
 <header>
+	<p class="meta"><a href="meta.html">Struttura sito</a></p>
 	<div class="titolo">
-		<h1 onclick="window.location.reload(false)" id="home">Crypto Coins Data</h1>
+		<h1 id="home"><a href="/">CRIPTO COINS</a></h1>
 	</div>
 	<div class="navWrap pure-menu pure-menu-horizontal">	
 		<nav>
 			<div class="navi">
 				<ul class="pure-menu-list">
-					<li class="pure-menu-item"><h4 onclick="showAll()"s class="pure-menu-link pointer">All of them</h4></li>
-					<li class="pure-menu-item" id="coinChoice" onclick="showCryptos()"><h4 class="pure-menu-link pointer">Choose currencies</h4></li>
+					<li class="pure-menu-item"><h4 onclick="showAll()" class="pure-menu-link pointer">All</h4></li>
+					<li class="pure-menu-item" id="coinChoice" onclick="showCryptos()"><h4 class="pure-menu-link pointer">Filter</h4></li>
 				</ul>
 				<div class="search">
 					<div class="searchDiv">
@@ -49,37 +50,38 @@
 			
 		</div>
 	</div>
-	<div id="numValute">
-		<div class="scroller2"><button type="button" onclick="scrollT(false)" class="pure-button button-small">&#8592</button><span class="segnaPagine"></span><button type="button" onclick="scrollT(true)" class="pure-button button-small">&#8594</button></div>
-		<div class="scroller"><button type="button" class="pure-button button-small" onclick="scrollB()">&#8592</button><span class="segnaPagine"></span><button type="button" class="pure-button button-small" onclick="scrollA()">&#8594</button></div>
-	</div>
+
 	<form id="cryptoTable" class="pure-form">
-		<div  id="checkBoxTable" class="pure-g">    
-		</div>          
+		<div  id="checkBoxTable" class="pure-g"></div>          
 		<input type="submit" value="Apply"></input>
 	</form>
 </header>
 	<main class="gridContainer">
 			<div class="principale" id="principale">
 				<div class="relativeWrapper">
-					<p>Default order: <span id="cap">market cap</span>. Click table head to sort by another parameter</p>
-					<p id="hoverCap">Market cap: circulating token * price single token</p>
+					<p class="h">Order: <span id="cap">market cap</span></p>
+					<p id="hoverCap">circulating token * price single token</p>
+					<div id="numValute">
+						<div class="scroller2"><button type="button" onclick="scrollT(false)" class="pure-button button-small">&#8592;</button><span class="segnaPagine"></span><button type="button" onclick="scrollT(true)" class="pure-button button-small">&#8594;</button></div>
+						<div class="scroller"><button type="button" class="pure-button button-small" onclick="scrollB()">&#8592;</button><span class="segnaPagine"></span><button type="button" class="pure-button button-small" onclick="scrollA()">&#8594;</button></div>
+					</div>
 				</div>	
 				<table id="homeTable" class="pure-table pure-table-horizontal pure-table-striped">
 					<tr class="tableHead">
 						<th class="head hName"></th>
-						<th class="head hTotal_Supply">Total Supply<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hMax_Supply">Max Supply<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hTrading_Volume_24h">Trading Volume 24h<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hPrice_change_1h">Price % change 1h<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hPrice_change_24h">Price % change 24h<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hValue">Value<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head ar hTotal_Supply">Total Supply<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head ar hMax_Supply">Max Supply<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head ar hTrading_Volume_24h">Trading Volume 24h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head ar hPrice_change_1h">Price % change 1h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head ar hPrice_change_24h">Price % change 24h<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head ar hValue">Value<i class="fas fa-arrow-down arrow"></i></th>
 					</tr>
 				</table>
-				<div id="numValute2">
+				<!--<div id="numValute2">
 					<div class="scroller"><button type="button" class="pure-button button-small" onclick="scrollB()">&#8592</button><a onclick="showAll()" id="showAllSpan">Show all</a><button type="button" class="pure-button button-small" onclick="scrollA()">&#8594</button></div>
-				</div>
-				<div class="scroller2"><button type="button" onclick="scrollT(false)" class="pure-button button-small">&#8592</button><span class="segnaPagine"></span><button type="button" onclick="scrollT(true)" class="pure-button button-small">&#8594</button></div>
+				</div>-->
+				<a onclick="showAll()" id="showAllSpan">Show all..</a>
+				<div class="scroller2"><button type="button" onclick="scrollT(false)" class="pure-button button-small">&#8592;</button><span class="segnaPagine"></span><button type="button" onclick="scrollT(true)" class="pure-button button-small">&#8594;</button></div>
 			</div>
 			<div class="secondario flexWrap" id="secondario">
 				<article class="sub">
@@ -118,25 +120,25 @@
 			<div class="flexBox flexWrap">
 				<div class="sideLink">
 					<a href="#">
-						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png" alt="banner">
 					</a>
 					<h6>Advertising</h6>
 				</div>
 				<div class="sideLink">
 					<a href="#">
-						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png" alt="banner">
 					</a>
 					<h6>Advertising</h6>
 				</div>
 				<div class="sideLink">
 					<a href="#">
-						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png" alt="banner">
 					</a>
 					<h6>Advertising</h6>
 				</div>
 				<div class="sideLink">
 					<a href="#">
-						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png">
+						<img src="https://www.w3.org/html/logo/badge/html5-badge-v-css3-semantics.png" alt="banner">
 					</a>
 					<h6>Advertising</h6>
 				</div>
@@ -151,5 +153,6 @@
 	<script src="index.js"></script>
 	<script src="indexPost.js"></script>
 	<script src="search.js"></script>
+	<script src="events.js"></script>
 </body>
 </html>

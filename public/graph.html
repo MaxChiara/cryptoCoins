@@ -39,6 +39,10 @@
 					</div>
 				</div> 		
 			</nav>	
+			<div class="icoWrap">
+				<h2 id="icoTitle"></h2>
+				<img src="" alt="Crypto logo" id="Ico">
+			</div>
 			<div id='iconNav'><button id='lightSwitch' class='lightOff' onclick="dswitch(this)"></button></div>
 		</div>
 		<div id="coinsPerPaginaDiv">
@@ -60,19 +64,33 @@
     <main>
         
 		<div class="principale" id="principale">
+			<div class="secondario flexWrap" id="secondario">	
+				<div class="canva" id="canvaA">
+					<svg class="svgClass">
+						<g class="intero">
+							<path></path>
+							<g class="points"></g>
+							<g class="popup"></g>
+							<g class="ordinate"></g>
+							<g class="ascisse"></g>
+							<g class="art"></g>
+						</g>	
+					</svg>
+				</div>			
+			</div>
 			<table id="homeTable" class="pure-table pure-table-horizontal pure-table-striped">
 				<thead>
 					<tr class="tableHead">
 						<th class="head hName"></th>
-						<th class="head hTotal_Supply">Total Supply<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hMax_Supply">Max Supply<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hTrading_Volume_24h">Trading Volume 24h<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hPrice_change_1h">Price % change 1h<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hPrice_change_24h">Price % change 24h<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hPrice_change_7d">Price % change 7d<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hPrice_change_30d">Price % change 30d<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hMarket_cap">Market Cap<i class="fas fa-arrow-down arrow"></i></th>
-						<th class="head hValue">Value<i class="fas fa-arrow-down arrow"></i></th>
+						<th class="head ar hTotal_Supply">Total Supply</th>
+						<th class="head ar hMax_Supply">Max Supply</th>
+						<th class="head ar hTrading_Volume_24h">Trading Volume 24h</th>
+						<th class="head ar hPrice_change_1h">Price % change 1h</th>
+						<th class="head ar hPrice_change_24h">Price % change 24h</th>
+						<th class="head ar hPrice_change_7d">Price % change 7d</th>
+						<th class="head ar hPrice_change_30d">Price % change 30d</th>
+						<th class="head ar hMarket_cap">Market Cap</th>
+						<th class="head ar hValue">Value</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -90,19 +108,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<div class="secondario flexWrap" id="secondario">
-				
-				<div class="canva" id="canvaA">
-					<svg class="svgClass">
-						<g class="intero">
-							<path></path>
-							<g class="points"></g>
-							<g class="ordinate"></g>
-							<g class="ascisse"></g>
-						</g>	
-					</svg>
-				</div>			
-			</div>
+			
 			<div class="flexContainerUrls">
 				<article class="subG">
 					<h4 class="titoloArticle"></h4>
@@ -147,9 +153,11 @@
 	<script src="mode.js"></script>
 	<script src="more.js"></script>
 	<script src="tableCompiler.js"></script>
+
+	<script src="d3.js"></script>
 	<script src="graficoPage.js"></script>
 	<script src="indexPost.js">	</script>
-	<script src="d3.js"></script>
+	
 	<script src="index.js"></script>
 	<script src="search.js"></script>
 </body>

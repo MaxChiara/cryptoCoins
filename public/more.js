@@ -71,7 +71,7 @@ function aggiornaTabellaFetch(id) {
 	fetch(req)
 	.then(response=> response.json())
 	.then(data => {
-		dataObjChecked = data;
+		dataObjChecked = data; //TESTING
 		clearTable();
 		return data
 	})

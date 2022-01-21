@@ -57,7 +57,8 @@ fetch(onLoadReq)
 		formatGreenRed();
 		addHref(idList);
 		visualizzaDatiScroller(start, limit, homeNumRows);
-		applyCanOrder()
+		applyCanOrder();
+		
 	})
 	.catch(err=> console.log('Errore nella prima chiamata: ', err))
 }
@@ -162,21 +163,10 @@ function scrollT(avanti) {
 }
 
 
-
 if (window. location.pathname == "/indexAll.html") {showAll()}
-else {
+else if(window. location.pathname != '/graph'){ //attivo la chiamata API solo se non siamo in una pagina grafico
 	//creo le <tr> della tabella
 	rowCreator(homeNumRows); 
 	loadHometable(start, limit, sort);
-}
-
-document.getElementById("cap").addEventListener("mouseenter", hoverCap);
-document.getElementById("cap").addEventListener("mouseleave", hoverCapLeave);
-
-function hoverCap(){
-	document.getElementById("hoverCap").style.display = "block"
-}
-
-function hoverCapLeave(){
-	document.getElementById("hoverCap").style.display = "none"
+	addArrowHoverEvents()
 }

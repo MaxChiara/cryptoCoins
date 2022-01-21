@@ -18,6 +18,10 @@ a {
   color: rgb(191, 173, 255);
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 a:hover {
   text-shadow: 1px 1px white;
 }
@@ -59,6 +63,14 @@ p {
   margin: 1rem auto;
 }
 
+.titolo > #home > a {
+  text-decoration: none;
+}
+
+.titolo > #home > a:hover {
+  text-shadow: none;
+}
+
 span {
   color: rgba(13, 214, 73, 0.767);
 }
@@ -74,12 +86,71 @@ body {
   padding: 0px;
 }
 
+/*meta*/
+.overflow {
+  overflow: visible;
+}
+
+.metaLink {
+  cursor: pointer;
+}
+
+.metaLink:hover {
+  opacity: 0.8;
+}
+
+path {
+  transition: all 1s ease-out;
+}
+
+.on {
+  stroke: rgb(161, 161, 161);
+}
+.off {
+  stroke: rgb(255, 255, 255);
+}
+
+.graph {
+  width: 100%;
+  height: 100%;
+}
+
+.display {
+  opacity: 1;
+  cursor: default;
+}
+
+.meta {
+  position: absolute;
+  right: 2rem;
+}
+
+.meta a {
+  text-decoration: none;
+  color: rgb(255 255 255 / 73%);
+}
+
+.text {
+  stroke: rgba(255, 255, 255, 0.842);
+  stroke-width: 0.1;
+  fill: rgba(255, 255, 255, 0.842);
+}
+
+.noshow {
+  height: 0;
+}
+
+svg {
+  transition: all 0.5s ease-out;
+}
+
+/*home*/
 .darkBackground {
-  background: rgb(3, 80, 44);
+  /* background: rgb(7 9 74); */
   background: linear-gradient(
     166deg,
     rgb(14 1 66) 7%,
-    rgba(0, 0, 0, 1) 31%,
+    rgb(48 65 126) 31%,
     rgb(14 1 66) 100%
   );
   background-attachment: fixed;
@@ -99,11 +170,15 @@ body {
 
 header {
   padding-top: 1%;
-  background: linear-gradient(0deg, rgb(21 22 70) 50%, rgb(10 14 143) 100%);
+  position: relative;
 }
 
 #showAllSpan:hover {
   cursor: pointer;
+}
+
+#showAllSpan {
+  color: rgba(191, 173, 255, 0.603);
 }
 
 #coinsPerPaginaDiv {
@@ -144,7 +219,7 @@ header {
 }
 
 nav {
-  width: 82%;
+  width: 90%;
 }
 
 .navWrap {
@@ -154,6 +229,7 @@ nav {
   /* background: linear-gradient(0deg, rgba(19,20,60,1) 0%, rgb(41 43 130 / 62%) 48%, rgba(19,20,60,1) 100%); */
   padding: 1rem 0rem;
   /* flex-wrap: wrap; */
+  position: relative;
 }
 
 #iconNav {
@@ -192,10 +268,19 @@ h4 {
   padding: 0.3em 1em;
 }
 
+#numValute,
+#numValute2 {
+  margin: 2px auto;
+  width: 30%;
+  align-items: center;
+}
+
 .scroller {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* width: 100%; */
+  /* margin: 0 auto; */
 }
 
 .scroller2 {
@@ -225,7 +310,9 @@ h4 {
 }
 
 .arrow {
-  display: none;
+  margin-left: 1rem;
+  transition: opacity 0.2s ease-out;
+  z-index: -1;
 }
 
 #cryptoTable {
@@ -313,9 +400,9 @@ main {
 
 #homeTable {
   width: 100%;
-  margin: 2px auto 2em auto;
+  margin: 2px auto 2px auto;
   border-color: #2a364c96;
-  background-color: #000000ab;
+  background-color: transparent;
   border-radius: 1%;
   border: none;
 }
@@ -340,6 +427,7 @@ thead {
 }
 #homeTable tr th {
   border-color: inherit;
+  z-index: 2;
 }
 
 .pure-table-striped {
@@ -383,12 +471,8 @@ tr td:first-child {
   min-width: 8rem;
 }
 
-tr {
-  background-color: #0c26662a;
-}
-
 .pure-table-striped tr:nth-child(2n-1) td {
-  background-color: #242475af;
+  background-color: #4c4ca3a1;
 }
 /*.tableHead {
 }*/
@@ -404,7 +488,7 @@ tr {
 
 #secondario {
   grid-area: secondario;
-  margin: 0 2rem 2rem 0;
+  margin: 2rem 2rem 2rem 0;
   border-radius: 3%;
   width: 100%;
 }
@@ -420,27 +504,30 @@ tr {
 
 .relativeWrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .relativeWrapper p {
-  margin: 2em auto 0.5em auto;
+  /* margin: 2em auto 0.5em auto; */
   width: fit-content;
   cursor: default;
+  display: inline;
+  position: absolute;
+  left: 0px;
 }
 
 #hoverCap {
   display: none;
   position: absolute;
-  top: -2em;
-  bottom: 0;
-  /* left: 50%; */
-  right: 21%;
+  /* top: -1em; */
   width: fit-content;
   margin: 0;
-  color: #839cf9;
+  color: #839cf9eb;
   border-radius: 5%;
   height: fit-content;
-  border-bottom: solid 1px #ffffffe6;
+  font-size: smaller;
 }
 
 .sub {
