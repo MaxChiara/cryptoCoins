@@ -216,7 +216,7 @@ const server = http.createServer((req,res)=>{
             headers: {'Content-Type': 'text/json',
             'accept': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'X-CMC_PRO_API_KEY': Config.coinMarketKey,
+            'X-CMC_PRO_API_KEY': 'de2431bb-c4f1-42ff-8bea-07ee15797876',
         }}
 
         //creo una stringa con i parametri della query 
