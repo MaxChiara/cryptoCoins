@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 const EventEmitter = require('events');
 const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
-const Config = require('./config');
+
 
 
 class MyEmitter extends EventEmitter {}
