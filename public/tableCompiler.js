@@ -400,7 +400,7 @@ function applyCanOrder() {
 function setOrder(event) {
     addArrowHoverEvents();
     hideClass("h");
-    let order = event.currentTarget.textContent;
+    let order = event.currentTarget.textContent.trim();
     switch (order) {
         case "Total Supply":
             order = "total_supply";
@@ -423,15 +423,19 @@ function setOrder(event) {
     }
     if (sort == order) {
         sort = "market_cap";
-        event.currentTarget.lastChild.style.opacity = "1";
-        //showClass("h");
-        //hideClass('arrow');
+        for (let e of event.currentTarget.children) {
+            if (e.className.includes("arrow")) {
+                e.style.opacity = "1";
+            }
+        }
     } else {
         event.currentTarget.removeEventListener("mouseenter", showArrow);
         event.currentTarget.removeEventListener("mouseleave", showArrow);
-        event.currentTarget.lastChild.style.opacity = "1";
-        //event.currentTarget.lastChild.classList.remove("ar");
-        //hideClass('arrow');
+        for (let e of event.currentTarget.children) {
+            if (e.className.includes("arrow")) {
+                e.style.opacity = "1";
+            }
+        }
         sort = order;
     }
     loadHometable(start, limit, sort, false);
